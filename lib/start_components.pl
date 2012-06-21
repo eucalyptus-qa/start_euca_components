@@ -477,12 +477,27 @@ sub load_kvm_module{
 
 		print "\n$my_nc_ip :: modprobe kvm_intel\n";
 		
-		#Start NCs
 		print("ssh -o StrictHostKeyChecking=no root\@$my_nc_ip \"modprobe kvm_intel\"\n");
 		$outstr = `ssh -o StrictHostKeyChecking=no root\@$my_nc_ip \"modprobe kvm_intel\"`;
 
 		print $outstr;
-		sleep(10);
+		sleep(3);
+
+		print "\n$my_nc_ip :: stop libvirtd\n";
+		
+		print("ssh -o StrictHostKeyChecking=no root\@$my_nc_ip \"service libvirtd stop\"\n");
+		$outstr = `ssh -o StrictHostKeyChecking=no root\@$my_nc_ip \"service libvirtd stop\"`;
+
+		print $outstr;
+		sleep(3);
+
+		print "\n$my_nc_ip :: start libvirtd\n";
+		
+		print("ssh -o StrictHostKeyChecking=no root\@$my_nc_ip \"service libvirtd start\"\n");
+		$outstr = `ssh -o StrictHostKeyChecking=no root\@$my_nc_ip \"service libvirtd start\"`;
+
+		print $outstr;
+		sleep(3);
 	};
 	return 0;
 };
