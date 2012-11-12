@@ -1,3 +1,17 @@
+
+start_euca_components
+=====================
+
+## Description
+
+Start Eucalyptus components
+
+## Procedure
+
+1. Uses the QA _start_components function to start up all EUCA components
+
+<hr><hr><hr>
+
 # Eucalyptus Testunit Framework
 
 Eucalyptus Testunit Framework is designed to run a list of test scripts written by Eucalyptus developers.
